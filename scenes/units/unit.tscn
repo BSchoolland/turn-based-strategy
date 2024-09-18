@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhmacposn4fl7"]
+
+[ext_resource type="Texture2D" uid="uid://ccpxjq3bw126" path="res://assets/placeholder/Mario-8-bit.png" id="1_tv1sp"]
+
+[node name="Unit" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(0.0510254, 0.0510254)
+texture = ExtResource("1_tv1sp")

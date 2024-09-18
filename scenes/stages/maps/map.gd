@@ -22,6 +22,11 @@ func _ready() -> void:
 			# resolution of sprites is 300x300, so the scale should be 
 			newTile.scale /= (3 / (tileSize / 100))
 			add_child(newTile)
+			row.append(newTile)
+		mapArray.append(row)
+
+func getSpace(x, y) -> Node2D:
+	return(mapArray[y][x])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -11,12 +11,11 @@ func _ready() -> void:
 	# set variable inital values
 	isGameRunning = false
 	isGameOver = false
-	
 	$main_menu.show()
 
 func _on_main_menu_play() -> void:
 	gameplay_start()
-	
+
 func gameplay_start() -> void:
 		# set variables and 
 	isGameRunning = true

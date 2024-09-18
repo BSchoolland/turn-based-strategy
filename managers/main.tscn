@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqnpvv5fm4dns"]
+[gd_scene load_steps=6 format=3 uid="uid://bqnpvv5fm4dns"]
 
 [ext_resource type="Script" path="res://managers/main.gd" id="1_pxj8f"]
 [ext_resource type="PackedScene" uid="uid://b2g4xf0vuvj0u" path="res://scenes/ui/menus/main_menu.tscn" id="2_bowyb"]
 [ext_resource type="PackedScene" uid="uid://bxopb2phpb3pq" path="res://scenes/ui/menus/help_menu.tscn" id="5_gdij6"]
-[ext_resource type="PackedScene" uid="uid://d3p488e0sgdpk" path="res://scenes/stages/maps/map.tscn" id="6_5rodp"]
 [ext_resource type="PackedScene" uid="uid://lhsp2yw6aduk" path="res://scenes/stages/gameplay_scene.tscn" id="6_o35ci"]
 [ext_resource type="PackedScene" uid="uid://d700j6uofmt7" path="res://scenes/ui/menus/settings_scene.tscn" id="6_yw4fl"]
 
@@ -19,8 +18,6 @@ visible = false
 visible = false
 
 [node name="gameplayScene" parent="." instance=ExtResource("6_o35ci")]
-
-[node name="Map" parent="." instance=ExtResource("6_5rodp")]
 
 [connection signal="help" from="main_menu" to="." method="_on_main_menu_help"]
 [connection signal="play" from="main_menu" to="." method="_on_main_menu_play"]
