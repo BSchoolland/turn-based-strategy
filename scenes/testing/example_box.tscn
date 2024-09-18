@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngc8qg5152ip"]
+
+[ext_resource type="Texture2D" uid="uid://bkfu142aokqk8" path="res://assets/placeholder/elementor-placeholder-image.webp" id="1_ygx5n"]
+
+[node name="ExampleBox" type="Node2D"]
+
+[node name="Elementor-placeholder-image" type="Sprite2D" parent="."]
+position = Vector2(592, 312)
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("1_ygx5n")

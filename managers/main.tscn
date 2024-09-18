@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqnpvv5fm4dns"]
+
+[ext_resource type="PackedScene" uid="uid://cqsdd4bgcchkq" path="res://scenes/other/splash_screen/splash_screen.tscn" id="1_0wnks"]
+[ext_resource type="Script" path="res://managers/main.gd" id="1_pxj8f"]
+[ext_resource type="PackedScene" uid="uid://b2g4xf0vuvj0u" path="res://scenes/ui/menus/main_menu.tscn" id="2_bowyb"]
+[ext_resource type="PackedScene" uid="uid://bxopb2phpb3pq" path="res://scenes/ui/menus/help_menu.tscn" id="5_gdij6"]
+[ext_resource type="PackedScene" uid="uid://lhsp2yw6aduk" path="res://scenes/stages/gameplay_scene.tscn" id="6_o35ci"]
+[ext_resource type="PackedScene" uid="uid://d700j6uofmt7" path="res://scenes/ui/menus/settings_scene.tscn" id="6_yw4fl"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_pxj8f")
+
+[node name="splash_screen" parent="." instance=ExtResource("1_0wnks")]
+visible = false
+
+[node name="main_menu" parent="." instance=ExtResource("2_bowyb")]
+
+[node name="help_menu" parent="." instance=ExtResource("5_gdij6")]
+visible = false
+
+[node name="settings-scene" parent="." instance=ExtResource("6_yw4fl")]
+visible = false
+
+[node name="gameplayScene" parent="." instance=ExtResource("6_o35ci")]
+
+[connection signal="help" from="main_menu" to="." method="_on_main_menu_help"]
+[connection signal="play" from="main_menu" to="." method="_on_main_menu_play"]
+[connection signal="settings" from="main_menu" to="." method="_on_main_menu_settings"]

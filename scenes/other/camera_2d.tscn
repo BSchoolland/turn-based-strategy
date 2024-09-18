@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8mmvciuywtam"]
+
+[ext_resource type="Script" path="res://scenes/other/camera_2d.gd" id="1_ffgtt"]
+
+[node name="Camera2D" type="Camera2D"]
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_speed = 25.0
+script = ExtResource("1_ffgtt")

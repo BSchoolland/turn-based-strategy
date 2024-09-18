@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2g4xf0vuvj0u"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/main_menu.gd" id="1_4nd44"]
+[ext_resource type="Texture2D" uid="uid://bkfu142aokqk8" path="res://assets/placeholder/elementor-placeholder-image.webp" id="1_bvsqb"]
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_4nd44")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 325)
+scale = Vector2(0.964167, 0.815)
+texture = ExtResource("1_bvsqb")
+
+[node name="help" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.802
+anchor_top = 0.134
+anchor_right = 0.802
+anchor_bottom = 0.134
+offset_left = 101.096
+offset_top = -71.832
+offset_right = 201.096
+offset_bottom = 28.168
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Help
+"
+
+[node name="play" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -59.0
+offset_right = 90.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Play"
+
+[node name="settings" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.802
+anchor_top = 0.134
+anchor_right = 0.802
+anchor_bottom = 0.134
+offset_left = -23.9041
+offset_top = -71.832
+offset_right = 76.0959
+offset_bottom = 28.168
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Settings
+"
+
+[connection signal="pressed" from="help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]

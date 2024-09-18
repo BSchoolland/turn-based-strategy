@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d700j6uofmt7"]
+
+[ext_resource type="Texture2D" uid="uid://bkfu142aokqk8" path="res://assets/placeholder/elementor-placeholder-image.webp" id="1_u7csb"]
+[ext_resource type="Script" path="res://scenes/ui/menus/settings_scene.gd" id="1_umc1d"]
+
+[node name="settings-scene" type="CanvasLayer"]
+script = ExtResource("1_umc1d")
+
+[node name="Elementor-placeholder-image" type="Sprite2D" parent="."]
+position = Vector2(573, 312)
+texture = ExtResource("1_u7csb")
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 1025.0
+offset_top = 15.0
+offset_right = 1125.0
+offset_bottom = 115.0
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+offset_top = 131.0
+offset_right = 1152.0
+offset_bottom = 706.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Settings that mute the sound!
+Settings that make the game easier!
+Settings which doth translateth thine game into ye olde english!
+Settings that give you good looks and charm!
+Settings that remove the fake settings!
+Settings that add more settings!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
