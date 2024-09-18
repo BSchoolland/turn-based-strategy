@@ -36,7 +36,6 @@ func fake_gameplay_loop():
 	#isGameOver = true
 	#gameplay_stop()
 
-
 func _on_main_menu_help() -> void:
 	$help_menu.show()
 

@@ -1,14 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://lhsp2yw6aduk"]
+[gd_scene load_steps=2 format=3 uid="uid://lhsp2yw6aduk"]
 
-[ext_resource type="PackedScene" uid="uid://bngc8qg5152ip" path="res://scenes/testing/example_box.tscn" id="1_mynhg"]
 [ext_resource type="PackedScene" uid="uid://8mmvciuywtam" path="res://scenes/other/camera_2d.tscn" id="2_cgjg6"]
 
 [node name="gameplayScene" type="Node2D"]
-
-[node name="ExampleBox" parent="." instance=ExtResource("1_mynhg")]
-
-[node name="ExampleBox2" parent="." instance=ExtResource("1_mynhg")]
-position = Vector2(-410, 5)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_cgjg6")]
 position = Vector2(576, 324)
