@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhmacposn4fl7"]
+[gd_scene load_steps=4 format=3 uid="uid://bhmacposn4fl7"]
 
+[ext_resource type="Script" path="res://scenes/units/unit.gd" id="1_8fmyo"]
 [ext_resource type="Texture2D" uid="uid://ccpxjq3bw126" path="res://assets/placeholder/Mario-8-bit.png" id="1_tv1sp"]
 
-[node name="Unit" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxuwu"]
+radius = 35.0571
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_8fmyo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(4.76837e-07, 4.76837e-07)
 scale = Vector2(0.0510254, 0.0510254)
 texture = ExtResource("1_tv1sp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_fxuwu")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
