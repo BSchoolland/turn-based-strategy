@@ -4,7 +4,7 @@ This is a turn based strategy game/template built in Godot. The game is a work i
 
 ### MVP
 - [x] Simple 2D camera controls
-- [ ] Basic grid based movement
+- [x] Basic grid based movement
 - [ ] Player actions (move, attack)
 - [ ] Basic but expandable AI
 - [ ] Basic UI (health, actions, etc)

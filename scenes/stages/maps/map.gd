@@ -29,26 +29,65 @@ func _ready() -> void:
 			row.append(newTile)
 		mapArray.append(row)
 
+func showValidActions(unit: Node2D) -> Array:
+	if (unit.myTurn):
+		clearSelections()
+		selectedUnit = unit
+		selectableSpaces = []
+		showValidMoves(unit)
+		showValidTargets(unit)
+		return selectableSpaces
+	else:
+		# the unit was clicked but it can't move 
+		return []
+
 func showValidMoves(unit) -> void:
-	selectedUnit = unit
-	selectableSpaces = []
+	if !unit.moveReady:
+		return
 	var currentSpace = getSpace(unit.gridX, unit.gridY)
-	var moves = 2 # FIXME: make fetch this from the unit
+	var moves = unit.speed
 	var possibleSpacesArray = getReachableSpaces(currentSpace, moves)
 	for tile in possibleSpacesArray:
-		tile.highlight()
-		selectableSpaces.append(tile)
-		tile.selected.connect(moveSelectedUnitToTile)
+		if !tile.currentUnit:
+			tile.highlight('move')
+			selectableSpaces.append(tile)
+			tile.selected.connect(moveSelectedUnitToTile)
+			tile.action = "move"
+			
+func showValidTargets(unit) -> void:
+	if !unit.attackReady:
+		return
+	var currentSpace = getSpace(unit.gridX, unit.gridY)
+	var range = unit.attackRange
+	var possibleSpacesArray = getReachableSpaces(currentSpace, range, true) # ignore move penalty and 
+	for tile in possibleSpacesArray:
+		if tile.currentUnit and tile.currentUnit.team != unit.team:
+			tile.highlight('attack')
+			selectableSpaces.append(tile)
+			tile.selected.connect(attackUnitOnTile)
+			tile.currentUnit.myTurn = false
+			tile.action = "attack"
 
-func moveSelectedUnitToTile(tile) -> void:
-	selectedUnit.moveUnitTo(tile)
-	clearSelections()
+			
+	
+func moveSelectedUnitToTile(tile, worksOnAI: bool = false) -> void:
+	if !selectedUnit.is_ai or worksOnAI:
+		selectedUnit.moveTo(tile)
+		clearSelections()
+
+func attackUnitOnTile(tile, worksOnAI: bool = false) -> void:
+	if !selectedUnit.is_ai or worksOnAI:
+		selectedUnit.attack(tile.currentUnit)
+		clearSelections()
 
 func clearSelections() -> void:
 	for tile in selectableSpaces:
+		tile.action = "nothing"
 		# disconnect any functions it might have
 		if tile.selected.is_connected(moveSelectedUnitToTile):
 			tile.selected.disconnect(moveSelectedUnitToTile)
+		if tile.selected.is_connected(attackUnitOnTile):
+			tile.selected.disconnect(attackUnitOnTile)
 		# unHighlight it
 		tile.unHighlight()
 # finds spaces within reach

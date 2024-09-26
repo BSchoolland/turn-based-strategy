@@ -11,3 +11,14 @@ script = ExtResource("1_x07jj")
 position = Vector2(576, 324)
 
 [node name="Map" parent="." instance=ExtResource("3_3d5x4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 520.0
+offset_top = 18.0
+offset_right = 614.0
+offset_bottom = 54.0
+text = "Next Turn"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

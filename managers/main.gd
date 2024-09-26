@@ -31,7 +31,8 @@ func gameplay_stop() -> void:
 	
 	
 func fake_gameplay_loop():
-	await get_tree().create_timer(15).timeout
+	pass
+	#await get_tree().create_timer(15).timeout
 	#isGameOver = true
 	#gameplay_stop()
 
